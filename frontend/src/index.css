@@ -23,6 +23,12 @@ input[type='submit']{
   background-color: red;
 }
 
+input[type='submit']:hover{
+  cursor: pointer;
+  padding-right: 20px;
+  background-color: red;
+}
+
 ::placeholder{
   color: silver;
 }
