@@ -34,26 +34,43 @@ const Detail = () => {
   },[])
 
   const chart = () => {
-    let locs = [];
-    let durs = [];
-    let bgcolor = [];
+    let locs = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'];
+    let durs = [0, 0, 0, 0, 0, 0];
+    let bgcolor = ['red', 'blue', 'green', 'orange', 'yellow', 'white'];
     axios.get(`http://localhost:5000/api/gps/query/${id}`, {headers: {Authorization: `Bearer ${token}`}}).then(res => {
       setLogdata(res.data);
+      let sumOfList = 0;
       for(const dataObj of res.data){
-        locs.push(dataObj.Location)
-        durs.push(5)
-        if(dataObj.Location=='L1'){bgcolor.push('red')}
-        if(dataObj.Location=='L2'){bgcolor.push('blue')}
-        if(dataObj.Location=='L3'){bgcolor.push('green')}
-        if(dataObj.Location=='L4'){bgcolor.push('orange')}
-        if(dataObj.Location=='L5'){bgcolor.push('yellow')}
+        sumOfList=sumOfList+5;
+        if(dataObj.Location=='L1'){
+          durs[0]=durs[0]+5
+        }
+        if(dataObj.Location=='L2'){
+          durs[1]=durs[1]+5
+        }
+        if(dataObj.Location=='L3'){
+          durs[2]=durs[2]+5
+        }
+        if(dataObj.Location=='L4'){
+          durs[3]=durs[3]+5;
+        }
+        if(dataObj.Location=='L5'){
+          durs[4]=durs[4]+5
+        }
+        if(dataObj.Location=='L6'){
+          durs[5]=durs[5]+5
+        }
+      }
+      let percentList = [];
+      for(const x of durs){
+        percentList.push((x/sumOfList)*100)
       }
       setData({
         labels: locs,
         datasets: [
           {
-            label: 'Duration',
-            data: durs,
+            label: 'Percentage of duration',
+            data: percentList,
             backgroundColor: bgcolor,
             borderColor: bgcolor,
             borderWidth: 1,
