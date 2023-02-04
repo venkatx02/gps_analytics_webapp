@@ -26,7 +26,7 @@ const Summary = () => {
   }
 
   if(!token){
-    return <Navigate to="/login" />
+    return <Navigate to="/" />
     }
   return (
     <div className='container-summary'>

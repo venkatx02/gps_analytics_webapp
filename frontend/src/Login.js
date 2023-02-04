@@ -14,6 +14,9 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post('http://localhost:5000/api/users/login',{email: data.email,password: data.password}).then(res => {
+      if(res.data.message){
+        alert(res.data.message)
+      }
       setToken(res.data.token)
       localStorage.setItem("jwt", res.data.token)
     })

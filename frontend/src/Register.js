@@ -13,7 +13,9 @@ const Register = () => {
     e.preventDefault();
     if(data.password==data.cpassword){
       axios.post('http://localhost:5000/api/users/',{username: data.username, email: data.email, password: data.password}).then(res => {
-        console.log(res)
+        if(res.data.message){
+          alert(res.data.message)
+        }
       });
     }else{
       alert("Passwords doesn't match");
