@@ -35,8 +35,8 @@ input[type='submit']:hover{
 
 .container-summary input[type='text']{
   background-color: grey;
-  height: 5px;
-  width: 200px;
+  height: 20px;
+  width: 300px;
 }
 
 .container-summary h1{
@@ -54,8 +54,8 @@ input[type='submit']:hover{
 }
 
 .container-summary th{
-  border-radius: 20%;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .container-summary tr:hover{
