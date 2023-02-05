@@ -34,8 +34,8 @@ const Detail = () => {
   },[])
 
   const chart = () => {
-    let locs = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'];
-    let durs = [0, 0, 0, 0, 0, 0];
+    let locs = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'/*, 'L7', 'L8', 'L9', 'L10'*/];
+    let durs = [0, 0, 0, 0, 0, 0/*, 0, 0, 0, 0*/];
     let bgcolor = ['red', 'blue', 'green', 'orange', 'yellow', 'white'];
     axios.get(`http://localhost:5000/api/gps/query/${id}`, {headers: {Authorization: `Bearer ${token}`}}).then(res => {
       setLogdata(res.data);
@@ -60,6 +60,18 @@ const Detail = () => {
         if(dataObj.Location=='L6'){
           durs[5]=durs[5]+5
         }
+        /*if(dataObj.Location=='L7'){
+          durs[6]=durs[6]+5
+        }
+        if(dataObj.Location=='L8'){
+          durs[7]=durs[7]+5
+        }
+        if(dataObj.Location=='L9'){
+          durs[8]=durs[8]+5
+        }
+        if(dataObj.Location=='L10'){
+          durs[9]=durs[9]+5
+        }*/
       }
       let percentList = [];
       for(const x of durs){
