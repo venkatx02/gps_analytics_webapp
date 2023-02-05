@@ -3,7 +3,7 @@ const Gps = require('../model/gpsModel');
 const User = require('../model/userModel');
 
 const getGps = asyncHandler(async (req, res) => {
-    const gps = await Gps.find().sort('Timestamp')
+    const gps = await Gps.find().sort('-Timestamp')
     res.status(200).json(gps);
 })
 
